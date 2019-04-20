@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "logicAppApiVersion": {
+            "value": "2016-10-01"
+        },
+        "workflowName": {
+            "value": "TEC-POC-DST-LA"
+        },
+        "workflowLocation": {
+            "value": "southcentralus"
+        },
+        "workflowSchema": {
+            "value": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#"
+        },
+        "tags": {
+            "value": {}
+        }
+    }
+}

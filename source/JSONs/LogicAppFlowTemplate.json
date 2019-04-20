@@ -1,0 +1,66 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "HTTP_Step_1": {
+                "inputs": {
+                    "method": "PUT",
+                    "uri": "http://www.myazurefunction.com"
+                },
+                "runAfter": {},
+                "type": "Http"
+            },
+            "HTTP_Step_2": {
+                "inputs": {
+                    "body": "@body('HTTP_Step_1')",
+                    "method": "GET",
+                    "uri": "http://www.myazurefunction2.com"
+                },
+                "runAfter": {
+                    "HTTP_Step_1": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "schema": {
+                        "properties": {
+                            "properties": {
+                                "properties": {
+                                    "user": {
+                                        "properties": {
+                                            "type": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "required": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    }
+}
